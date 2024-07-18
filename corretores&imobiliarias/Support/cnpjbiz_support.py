@@ -59,7 +59,7 @@ def capturar_cnpj_empresa_cnpjbiz():
 def mover_ate_empresa_cnpjbiz(nome_empresa):
     downs = 6 if len(nome_empresa) > 49 else 5
     pyautogui.PAUSE = .5
-    for _ in range(downs):
+    for _ in range(downs + 8):
         pyautogui.press("down")
     pyautogui.PAUSE = 1
 
@@ -72,16 +72,17 @@ def abrindo_empresa_cnpjbiz():
 
 def direcionando_contatos_endereco_cnpjbiz():
     pyautogui.PAUSE = .5
-    for _ in range(9):
+    for _ in range(22):
         pyautogui.press("down")
     pyautogui.PAUSE = 1
 
 
 
 def direcionando_nome_fantasia_cnpjbiz():
-    time.sleep(4)
+    time.sleep(3)
+    pyautogui.click(0,430)
     pyautogui.PAUSE = .5
-    for _ in range(6):
+    for _ in range(11):
         pyautogui.press("down")
     pyautogui.PAUSE = 1
 
@@ -124,7 +125,7 @@ def recuperando_contatos_cnpj_biz(contatos_texto_og):
 
 def recuperando_socios_cnpj_biz():
     pyautogui.PAUSE = .5
-    for _ in range(12):
+    for _ in range(22):
         pyautogui.press("down")
     pyautogui.PAUSE = 1
     socios_texto = recuperando_string_print(0, 0, 1000, 1000)

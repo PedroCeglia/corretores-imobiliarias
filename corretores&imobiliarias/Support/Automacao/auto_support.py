@@ -46,8 +46,7 @@ def verificar_edge_maximizado():
 
 
 def iniciando_edge_selenium(url):
-    path = r"C:\Users\cegli\Downloads\WEBDRIVER_EDGEx64"
-    driver = webdriver.Edge(executable_path=path)
+    driver = webdriver.Edge()
 
     # Maximize a janela do navegador
     driver.maximize_window()

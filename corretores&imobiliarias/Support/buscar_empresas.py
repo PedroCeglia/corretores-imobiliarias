@@ -1,7 +1,7 @@
 import pandas as pd
 
 from Support.linkana_support import buscar_empresa_linkana as _buscar_empresa_linkana
-from Support.cnpjbiz_support import buscar_empresa_cnpjbiz as _buscar_empresa_cnpjbiz
+from Support.cnpjbiz_support import buscar_empresa_cnpjbiz
 
 
 def _buscar_dados_empresas_linkana(empresa):
@@ -46,7 +46,6 @@ def buscar_todas_empresas_bairro_linkana(df:pd.DataFrame):
     for idx, empresa in df.iterrows():
         try:
             empresa_completa = _buscar_dados_empresa_transformar_df_linkana(empresa)
-            display(empresa_completa)
             if not empresa_completa.empty and not "error" in empresa_completa:
                 completos_df = pd.concat([completos_df, empresa_completa], ignore_index=True)
             elif "error" in empresa_completa:
@@ -66,7 +65,7 @@ def _buscar_dados_empresas_cnpjbiz(empresa):
     inscricao_empresa = empresa["Inscrição"]
 
     dados_novos = {}
-    recuperou = _buscar_empresa_cnpjbiz(nome_empresa, inscricao_empresa)
+    recuperou = buscar_empresa_cnpjbiz(nome_empresa, inscricao_empresa)
 
     print("Recuperou", recuperou)
     if not recuperou or "error" in recuperou:
